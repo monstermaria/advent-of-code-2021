@@ -1,5 +1,4 @@
 const fs = require('fs/promises');
-const { posix } = require('path');
 
 const inputPromise = fs.readFile('./input.txt', 'utf-8');
 
