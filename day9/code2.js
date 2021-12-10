@@ -19,8 +19,6 @@ const handleBasinRow = (row, startColumn, stopColumn, coordinates, basins) => {
 
   const basinRowLength = stopColumn - startColumn;
 
-  // console.log('Handling basin row', row, startColumn, stopColumn);
-
   // check if there are any basins above this row
   const basinsAboveThisRow = [];
 
@@ -77,6 +75,7 @@ const handleBasinRow = (row, startColumn, stopColumn, coordinates, basins) => {
         }
       }
 
+      // remove the basin that was just merged from the basins above array
       basinsAboveThisRow.splice(1, 1);
     }
   }
@@ -112,8 +111,6 @@ const handleBasinRow = (row, startColumn, stopColumn, coordinates, basins) => {
 const handleStringResult = (result) => {
 
   const mapLines = result.split('\n');
-
-  console.log(mapLines);
 
   // data structure for storing what basin a point on the map belongs to
   // -1 signifies the point is not part of a basin
@@ -188,14 +185,11 @@ const handleStringResult = (result) => {
 
   fs.writeFile('output.txt', output);
 
-  console.log(basins);
-
   // sort basins in descending order
   basins.sort((first, second) => {
     return first === second ? 0 : first < second ? 1 : -1;
   });
 
-  console.log(basins);
   console.log('Answer:', basins[0] * basins[1] * basins[2]);
 };
 
