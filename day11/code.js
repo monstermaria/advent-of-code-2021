@@ -117,12 +117,8 @@ const resetFlashedOctopuses = (octopuses, octopusesFlashed) => {
 
 const handleStringResult = (result) => {
 
-  console.log(result);
-
   // prepare octopus data
   const octopuses = result.split('\n');
-
-  console.log(octopuses);
 
   for (let row = 0; row < octopuses.length; row++) {
     octopuses[row] = octopuses[row].split('').map(parseInt);
@@ -137,9 +133,6 @@ const handleStringResult = (result) => {
       octopusesFlashed[row].push(false);
     }
   }
-
-  console.log(octopuses);
-
 
   printOctopuses(octopuses);
 
