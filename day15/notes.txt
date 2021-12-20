@@ -1,0 +1,18 @@
+I am not happy with the outcome of part 2 of the problem.
+I got the right answer, but the fastest solution on my machine is Day15Array.java.
+It still takes 57 seconds, and that is almost 4 times more than the suggested 15 seconds.
+
+I have been experimenting with the order of checks in the recursive algorithm,
+and tried expanding the map first, and then using it with the solution to part one.
+That yielded the fastest solution witth JavaScript (136 s).
+
+One useful thing I found out, is that it is a lot faster to compare an integer
+JavaScript number to Number.MAX_SAFE_INTEGER, than any other integer.
+I thought it would help to initialize the map of lowest risk sums with
+a simple sum of lines and a start value from the row above, but this only
+made things slower.
+
+When reading lowest risk sums from file, it made no diffesence at all, since
+the number is interpreted as a regular number (that happens to be the max safe integer).
+
+Maybe I will try to improve this at some point in the future, but don't hold your breath! ;)
